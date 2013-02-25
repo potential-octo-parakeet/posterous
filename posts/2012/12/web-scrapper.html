@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<link href='../../../exports.css' rel='stylesheet'>
+<link href='../../../exports.css' rel='stylesheet'>
+
+</head>
+<body>
+<div id='wrap'>
+<div id='header'>
+<h1>Mar Cejas</h1>
+<h2>This is an archived post
+This is an archived post
+</h2>
+</div>
+<div id='content'><div id='nav'>
+<a href="../../../posts/2012/12/fixed-odesk-api-oauth-throwing-a-strict-stand.html">Previous</a>
+&nbsp; 
+<a href="../../../index.html">Index</a>
+&nbsp; 
+<a href="../../../posts/2012/12/google-map-v3-new-function-prototype.html">Next</a>
+</div>
+<div class='post'>
+<div class='post_header'>
+<h3>Web scraper</h3>
+<div class='post_info'>
+<span class='post_time'>December 15 2012,  4:33 PM</span>
+<span class='author'>&nbsp;by Mar Cejas</span>
+</div>
+</div>
+<div class='post_body'><p>Recently, I got a project from fiverr to write a PHP script that scrape data from a site.</p>
+<p><code> function scrapeData($url){
+ $ch = curl_init();
+ curl_setopt($ch, CURLOPT_URL, $url);
+ curl_setopt($ch, CURLOPT_HEADER, 0);
+ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+ $data = curl_exec($ch);
+ $status = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+ curl_close($ch);
+ if($status==200){
+ $x = new SimpleXMLElement($data,LIBXML_NOCDATA);
+ // initiliaze to its corresponding variables
+ $Kategorie        = $x-&gt;Product-&gt;Category-&gt;Name['Value'];
+ $Hersteller       = $x-&gt;Product-&gt;Supplier['Name'];
+ $Artikelnummer    = $x-&gt;Product['Prod_id'];
+ $Bezeichnung      = $x-&gt;Product['Name'];
+ $EAN              = $x-&gt;Product-&gt;EANCode['EAN']; 
+ $UPC              = $EAN; 		$Beschreibung     = $x-&gt;Product-&gt;ProductDescription['LongDesc'];
+ $Technische_Daten = $x-&gt;Product-&gt;SummaryDescription-&gt;LongSummaryDescription;
+ $Sprache          = $x-&gt;Product-&gt;ProductFeature['59']['Value']; 
+ $URL              = $x-&gt;Product-&gt;ProductDescription['URL'];
+ $Marktrelease     = $x-&gt;Product['ReleaseDate'];
+ $Bild             = $x-&gt;Product['HighPic'];
+ 
+ $file_header = array(
+ 'Kategorie',
+ 'Hersteller',
+ 'Artikelnummer',
+ 'Bezeichnung',
+ 'EAN',
+ 'UPC',
+ 'Beschreibung',
+ 'Technische_Daten',
+ 'Sprache',
+ 'URL',
+ 'Marktrelease',
+ 'Bild');
+ 
+ $file_content = array(
+ $Kategorie,
+ $Hersteller,
+ $Artikelnummer,
+ $Bezeichnung,
+ $EAN,
+ $UPC,
+ $Beschreibung,
+ $Technische_Daten,
+ $Sprache,
+ $URL,
+ $Marktrelease,
+ $Bild);		
+ 
+ array_push($_SESSION['COMPLETE_DATA'],$file_content);	
+ 
+ // INIT VARS	
+ $DriveSave = false;
+ $DBSave = true;
+ $path = '.';
+ if($DriveSave){
+ /* enable $DriveSave = true if you want to save it on your drive */
+ $fp = fopen($path."scrape_".time().".csv","w");
+ fputcsv($fp, $file_header);
+ fputcsv($fp, $file_content);		
+ fclose($fp);				
+ }	
+ 
+ if($DBSave){
+ /* enable $DBSave = true if you want to save this on your db */	
+ /* Please set your database connection here 	 */
+ define('DB_HOST','localhost');
+ define('DB_USER','User_0001');
+ define('DB_PASS','testingit');
+ define('DB_NAME','scrapeit');
+ 
+ $sql = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+ 
+ $stmt = $sql-&gt;prepare("INSERT INTO scrape(
+ Kategorie,
+ Hersteller,
+ Artikelnummer,
+ Bezeichnung,
+ EAN,
+ UPC,
+ Beschreibung,
+ Technische_Daten,
+ Sprache,
+ URL,
+ Marktrelease,
+ Bild) 
+VALUES('?','?','?','?','?','?','?','?','?','?','?','?')");
+ $stmt-&gt;bind_param('ssssssssssss',
+ $Kategorie,
+ $Hersteller,
+ $Artikelnummer,
+ $Bezeichnung,
+ $EAN,
+ $UPC,
+ $Beschreibung,
+ $Technische_Daten,
+ $Sprache,
+ $URL,
+ $Marktrelease,
+ $Bild);
+ $stmt-&gt;execute();
+ }
+ return json_encode(array(
+ 'status'=&gt;true,
+ 'data'=&gt;'Completed. Data saved.'
+ )
+ );
+ }
+ else{
+ return json_encode(array(
+ 'status'=&gt;false,
+ 'data'=&gt;'Error: HTTP return '.$status
+ )
+ );
+ }
+ }
+ </code></p>
+<p>You can fork it here&nbsp;<a href="https://github.com/mvcejas/web-scraper" target="_blank">https://github.com/mvcejas/web-scraper&nbsp;</a></p></div>
+<div class='post_responses'>
+<h4>283 views and 0 responses</h4>
+<ul class='post_responses list'>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

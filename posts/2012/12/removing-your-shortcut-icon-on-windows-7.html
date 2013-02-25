@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<link href='../../../exports.css' rel='stylesheet'>
+<link href='../../../exports.css' rel='stylesheet'>
+
+</head>
+<body>
+<div id='wrap'>
+<div id='header'>
+<h1>Mar Cejas</h1>
+<h2>This is an archived post
+This is an archived post
+</h2>
+</div>
+<div id='content'><div id='nav'>
+<a href="../../../posts/2012/12/google-map-v3-new-function-prototype.html">Previous</a>
+&nbsp; 
+<a href="../../../index.html">Index</a>
+&nbsp; 
+<a href="../../../posts/2012/12/odesk-job-feed-wordpress-plugin.html">Next</a>
+</div>
+<div class='post'>
+<div class='post_header'>
+<h3>Removing your shortcut icon on Windows 7</h3>
+<div class='post_info'>
+<span class='post_time'>December  9 2012,  4:07 PM</span>
+<span class='author'>&nbsp;by Mar Cejas</span>
+</div>
+</div>
+<div class='post_body'><p>Actually, this is not removing the shortcut icon but rather we are making it transparent icon instead of the arrow icon.&nbsp;</p>
+<p>How we do it, is we need to access it on registry using <strong>regedit </strong>command on command prompt. Once we are on the registry, we need to find the following keys:</p>
+<ul>
+<li>HKEY_LOCAL_MACHINE</li>
+<li>SOFTWARE</li>
+<li>Microsoft</li>
+<li>Windows</li>
+<li>CurrentVersion</li>
+<li>Explorer</li>
+<li>Shell Icons (This key is not created on default Windows 7 registry, so we need to create this manually by doing a right-click and create new key)</li>
+</ul>
+<p><div class='p_embed p_image_embed'>
+<img src='../../../image/2012/12/46263189-regedit.png'>
+</div>
+</p>
+<p>Once, we have created the Shell Icons key, we need then create a new <span style="color: #800000;"><strong><em>String Value</em></strong></span> with the following <em><span style="color: #800000;"><strong>Name:&nbsp;<span style="text-decoration: underline;">29</span></strong></span></em> and <span style="color: #800000;"><em><strong>Data:</strong></em>&nbsp;</span><span style="text-decoration: underline;"><span style="color: #800000;"><strong><em>%SystemRoot%\System32\imageres.dll,113</em></strong></span></span></p>
+<p><div class='p_embed p_image_embed'>
+<img src='../../../image/2012/12/46263276-regedit-string-val.png'>
+</div>
+<div class='p_embed p_image_embed'>
+<img src='../../../image/2012/12/46263291-Capture.PNG'>
+</div>
+<div class='p_embed p_image_embed'>
+<img src='../../../image/2012/12/46263287-regedit-shell-icons.png'>
+</div>
+</p>
+<p><strong>Logoff </strong>your computer and then see the cleaner shortcut icons on your desktop.</p>
+<p><div class='p_embed p_image_embed'>
+<img src='../../../image/2012/12/46263459-d2.png'>
+</div>
+</p>
+<p class="note12102012"><span style="color: #800000; font-size: medium;">Note: Sometimes the shortcut icon turn black, I think problem hooking up from the icon library, not sure, maybe someone can comment why this is happening. So, another option is to create a transparent icon and hook them up as your new Data value.</span></p></div>
+<div class='post_tags'>
+<h4>Tags</h4>
+<div class='post_tags_list'>desktop, windows7</div>
+</div>
+<div class='post_responses'>
+<h4>371 views and 0 responses</h4>
+<ul class='post_responses list'>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

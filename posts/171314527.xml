@@ -1,0 +1,67 @@
+<item>
+	<title>Removing your shortcut icon on Windows 7</title>
+	<link>http://blog.mvcejas.com/removing-your-shortcut-icon-on-windows-7</link>
+	<pubDate>Sun Dec 09 16:07:28 -0800 2012</pubDate>
+	
+	<dc:creator><![CDATA[Mar Cejas]]></dc:creator>
+	
+	
+		<category domain="tag" nicename="desktop"><![CDATA[desktop]]></category>
+	
+		<category domain="tag" nicename="windows7"><![CDATA[windows7]]></category>
+	
+
+	<category><![CDATA[Uncategorized]]></category>
+
+	<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
+
+  <guid isPermaLink="false">http://blog.mvcejas.com/removing-your-shortcut-icon-on-windows-7</guid>
+	<description></description>
+	<content:encoded><![CDATA[<p>Actually, this is not removing the shortcut icon but rather we are making it transparent icon instead of the arrow icon.&nbsp;</p>
+<p>How we do it, is we need to access it on registry using <strong>regedit </strong>command on command prompt. Once we are on the registry, we need to find the following keys:</p>
+<ul>
+<li>HKEY_LOCAL_MACHINE</li>
+<li>SOFTWARE</li>
+<li>Microsoft</li>
+<li>Windows</li>
+<li>CurrentVersion</li>
+<li>Explorer</li>
+<li>Shell Icons (This key is not created on default Windows 7 registry, so we need to create this manually by doing a right-click and create new key)</li>
+</ul>
+<p><div class='p_embed p_image_embed'>
+<img alt="Regedit" height="221" src="http://getfile7.posterous.com/getfile/files.posterous.com/temp-2012-12-09/ABjmIvvtFfEaCHHFifBClgkxuIoHzDduecphBagDskhdzhCzsarfzdIJfGGI/regedit.png.scaled500.png" width="467" />
+</div>
+</p>
+<p>Once, we have created the Shell Icons key, we need then create a new <span style="color: #800000;"><strong><em>String Value</em></strong></span> with the following <em><span style="color: #800000;"><strong>Name:&nbsp;<span style="text-decoration: underline;">29</span></strong></span></em> and <span style="color: #800000;"><em><strong>Data:</strong></em>&nbsp;</span><span style="text-decoration: underline;"><span style="color: #800000;"><strong><em>%SystemRoot%\System32\imageres.dll,113</em></strong></span></span></p>
+<p><div class='p_embed p_image_embed'>
+<img alt="Regedit-string-val" height="182" src="http://getfile7.posterous.com/getfile/files.posterous.com/temp-2012-12-09/pkJpyBFnlyFysmumycJIoAxHCuBofdrtIklmcCzfAbuijwFhekIocdkgnjrm/regedit-string-val.png.scaled500.png" width="336" />
+</div>
+<div class='p_embed p_image_embed'>
+<a href="http://getfile5.posterous.com/getfile/files.posterous.com/temp-2012-12-09/JByexvkGtsBGFvGgucIsivcwbtxkpEskFBklkzvlmFHxcgmxjolGbHwFgmwD/Capture.PNG.scaled1000.png"><img alt="Capture" height="60" src="http://getfile2.posterous.com/getfile/files.posterous.com/temp-2012-12-09/JByexvkGtsBGFvGgucIsivcwbtxkpEskFBklkzvlmFHxcgmxjolGbHwFgmwD/Capture.PNG.scaled500.png" width="500" /></a>
+</div>
+<div class='p_embed p_image_embed'>
+<a href="http://getfile5.posterous.com/getfile/files.posterous.com/temp-2012-12-09/scffEvrBzaygJtyjkyGFJjhyzyoqtarudJzBFvtCwaFChIqqsBkdwhclElzs/regedit-shell-icons.png.scaled1000.png"><img alt="Regedit-shell-icons" height="72" src="http://getfile1.posterous.com/getfile/files.posterous.com/temp-2012-12-09/scffEvrBzaygJtyjkyGFJjhyzyoqtarudJzBFvtCwaFChIqqsBkdwhclElzs/regedit-shell-icons.png.scaled500.png" width="500" /></a>
+</div>
+</p>
+<p><strong>Logoff </strong>your computer and then see the cleaner shortcut icons on your desktop.</p>
+<p><div class='p_embed p_image_embed'>
+<img alt="D2" height="525" src="http://getfile7.posterous.com/getfile/files.posterous.com/temp-2012-12-09/DrkdlqjEFDHgJhBqwoIvommfHGaEqeqisJbptolFeodddwGykJaDyalaxEze/d2.png.scaled500.png" width="300" />
+</div>
+</p>
+<p class="note12102012"><span style="color: #800000; font-size: medium;">Note: Sometimes the shortcut icon turn black, I think problem hooking up from the icon library, not sure, maybe someone can comment why this is happening. So, another option is to create a transparent icon and hook them up as your new Data value.</span></p>]]></content:encoded>
+	<excerpt:encoded><![CDATA[Actually, this is not removing the shortcut icon but rather we are making it transparent icon instead of the arrow icon. How we do it, is we need to access it on registry using regedit command on command prompt. Once we are on the registry, we nee...]]></excerpt:encoded>	
+
+	<wp:post_date>Sun Dec 09 16:07:28 -0800 2012</wp:post_date>
+	<wp:post_date_gmt>%= display_date %></wp:post_date_gmt>
+	<wp:comment_status>open</wp:comment_status>
+	<wp:ping_status>open</wp:ping_status>
+	<wp:post_name>removing-your-shortcut-icon-on-windows-7</wp:post_name>
+	<wp:status>publish</wp:status>
+	<wp:post_parent>0</wp:post_parent>
+	<wp:menu_order>0</wp:menu_order>
+	<wp:post_type>post</wp:post_type>
+	<wp:post_password></wp:post_password>
+	<wp:is_sticky>0</wp:is_sticky>
+
+	
+</item>
